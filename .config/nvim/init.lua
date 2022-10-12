@@ -18,7 +18,10 @@ local use = packer.use
 use 'wbthomason/packer.nvim'
 
 -- Custom syntaxes
+use 'treesitter_conf'
+
 use 'rust-lang/rust.vim'
+use 'pangloss/vim-javascript'
 
 -- Autocomplete
 use {
