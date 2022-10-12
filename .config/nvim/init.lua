@@ -27,7 +27,12 @@ use 'rust-lang/rust.vim'
 use 'pangloss/vim-javascript'
 
 -- Finder
-use 'nvim-telescope/telescope.nvim'
+use {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.0',
+    config = function() require('telescope_conf') end,
+    requires = { {'nvim-lua/plenary.nvim'} }
+}
 
 -- Autocomplete
 use {
