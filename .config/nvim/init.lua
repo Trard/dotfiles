@@ -18,7 +18,10 @@ local use = packer.use
 use 'wbthomason/packer.nvim'
 
 -- Syntax highligth
-use 'treesitter_conf'
+use {
+    'nvim-treesitter/nvim-treesitter',
+    config = function() require('treesitter_conf') end
+}
 
 use 'rust-lang/rust.vim'
 use 'pangloss/vim-javascript'
