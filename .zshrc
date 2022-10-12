@@ -11,7 +11,7 @@ export POWERLEVEL9_MODE="nerdfont-complete"
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions you-should-use)
 
 # zsh autoupdate
-DISABLE_UPDATE_PROMPT="true"
+export DISABLE_UPDATE_PROMPT="true"
 export UPDATE_ZSH_DAYS=30
 
 # PATH
@@ -30,9 +30,6 @@ export NVM_DIR="$HOME/.nvm"
 bindkey -M vicmd v edit-command-line
 export VISUAL='nvim'
 export EDITOR='nvim'
-
-# Dot Files
-export DOTFILES="~/dotfiles"
 
 # fix wsl2 interpop
 # https://github.com/microsoft/WSL/issues/5065

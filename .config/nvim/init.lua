@@ -26,6 +26,9 @@ use {
 use 'rust-lang/rust.vim'
 use 'pangloss/vim-javascript'
 
+-- Finder
+use 'nvim-telescope/telescope.nvim'
+
 -- Autocomplete
 use {
     'hrsh7th/nvim-cmp',
