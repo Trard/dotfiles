@@ -23,20 +23,18 @@ vim.cmd
     augroup END
 ]]
 
+
+vim.opt.clipboard = 'unnamedplus'
+
 -- Some WSL patches
 if vim.fn.has("wsl") then
-    -- Allow copy
-    vim.g.clipboard = {
-        name = "clip.exe (Copy Only)",
-        copy = {
-            ["+"] = "clip.exe",
-            ["*"] = "clip.exe"
-        },
-        paste = {
-            ["+"] = "clip.exe",
-            ["*"] = "clip.exe"
-        },
-        cache_enabled = true
-    }
+    vim.cmd[[
+        let s:clip = '/mnt/c/Windows/System32/clip.exe'
+        if executable(s:clip)  
+            augroup WSLYank
+                autocmd!
+                autocmd TextYankPost * if v:event.operator ==# 'y' | call system('cat |' . s:clip, @0) | endif
+            augroup END
+        endif
+    ]]
 end
-
