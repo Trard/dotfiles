@@ -3,10 +3,9 @@ require("nvim-treesitter.configs").setup {
 
     auto_install = true, 
     
-    disable = { "rust" },
-
     highlight = {
-        enable = true,
+        enable = false,
+        disable = { "rust", "javascript" },
     },
     
     rainbow = {
