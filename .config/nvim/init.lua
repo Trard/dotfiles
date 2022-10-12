@@ -23,7 +23,7 @@ use {
     config = function() require('treesitter_conf') end
 }
 
-use 'rust-lang/rust.vim'
+-- use 'rust-lang/rust.vim'
 use 'pangloss/vim-javascript'
 
 -- Finder
