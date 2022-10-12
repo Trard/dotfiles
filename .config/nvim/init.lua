@@ -24,7 +24,6 @@ use {
 }
 
 use 'rust-lang/rust.vim'
-use 'pangloss/vim-javascript'
 
 -- Finder
 use {
