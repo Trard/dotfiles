@@ -17,7 +17,9 @@ local use = packer.use
 -- Packer itself
 use 'wbthomason/packer.nvim'
 
--- Custom syntaxes
+-- Syntax highligth
+use 'treesitter_conf'
+
 use 'rust-lang/rust.vim'
 use 'pangloss/vim-javascript'
 
