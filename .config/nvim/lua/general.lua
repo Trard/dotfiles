@@ -12,6 +12,8 @@ o.tabstop = 4
 o.shiftwidth = 4
 o.softtabstop = 4       
 
+o.shell = "zsh"
+
 vim.api.nvim_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true })
 
 -- Cursor fix after exit

@@ -41,14 +41,6 @@ fix_wsl2_interop() {
     done
 }
 
-# aliases
-alias lss='/usr/bin/ls --color=auto'
-
-alias ls='lsd'
-alias l='ls -li'
-alias lst='ls --tree $(xargs printf " --ignore-glob=%s" < ~/.config/lsd/ignore)'
-alias vim='nvim'
-
 # sources
 source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
