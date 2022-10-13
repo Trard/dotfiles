@@ -26,6 +26,12 @@ use {
 -- use 'rust-lang/rust.vim'
 use 'pangloss/vim-javascript'
 
+-- Indent line
+use {
+    'lukas-reineke/indent-blankline.nvim',
+    setup = function() require('indent_line_setup') end
+}
+
 -- Finder
 use {
     'nvim-telescope/telescope.nvim',
