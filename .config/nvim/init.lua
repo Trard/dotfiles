@@ -39,12 +39,25 @@ use {
     setup = function() require('indent_line_setup') end
 }
 
+-- Git Diff
+use { 
+    'sindrets/diffview.nvim',
+    config = function() require('diffview_conf') end,
+    requires = {
+        'nvim-lua/plenary.nvim',
+        'kyazdani42/nvim-web-devicons'
+    }
+}
+
+-- Command aliases
+use 'Konfekt/vim-alias'
+
 -- Finder
 use {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.0',
     config = function() require('telescope_conf') end,
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { 'nvim-lua/plenary.nvim' }
 }
 
 -- Autocomplete
