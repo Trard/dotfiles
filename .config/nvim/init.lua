@@ -49,9 +49,6 @@ use {
     }
 }
 
--- Command aliases
-use 'Konfekt/vim-alias'
-
 -- Finder
 use {
     'nvim-telescope/telescope.nvim',
@@ -89,7 +86,9 @@ use {
 -- Deep Ocean Theme
 use 'marko-cerovac/material.nvim'
 vim.g.material_style = "deep ocean"
-vim.cmd 'colorscheme material'
+vim.cmd "colorscheme material"
 
 -- Run all config
 dofile(fn.stdpath("data") .. "/packer_compiled.lua")
+
+require('aliases')
