@@ -23,7 +23,6 @@ vim.cmd
     augroup END
 ]]
 
-
 vim.opt.clipboard = 'unnamedplus'
 
 -- Some WSL patches
