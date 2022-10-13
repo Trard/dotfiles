@@ -20,9 +20,16 @@ use 'wbthomason/packer.nvim'
 -- Syntax highligth
 use {
     'nvim-treesitter/nvim-treesitter',
-    config = function() require('treesitter_conf') end
+    config = function() require('treesitter_conf') end,
+    requires = {
+	    "p00f/nvim-ts-rainbow",
+	}
 }
 
+use {
+    'norcalli/nvim-colorizer.lua',
+    config = function() require('colorizer').setup() end
+}
 -- use 'rust-lang/rust.vim'
 use 'pangloss/vim-javascript'
 
