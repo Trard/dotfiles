@@ -13,7 +13,8 @@ require("nvim-treesitter.configs").setup({
 		extended_mode = true,
 
 		colors = {
-			"#89DDFF",
+            "#89DDFF",
+            "#C792EA",
 		},
 	},
 })
