@@ -93,7 +93,6 @@ use 'dstein64/vim-startuptime'
 -- LSP
 use { 'neovim/nvim-lspconfig', config = function() require('lsp_conf') end }
 
--- Pretty LSP diagnostics
 use {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     config = function()
