@@ -8,7 +8,8 @@ alias lss='/usr/bin/ls --color=auto'
 alias ls='lsd'
 alias l='ls -li'
 alias lst='ls --tree $(xargs printf " --ignore-glob=%s" < ~/.config/lsd/ignore)'
-alias vim='nvim'
+
+alias v='nvim'
 
 export ZSH="$HOME/.oh-my-zsh"
 
