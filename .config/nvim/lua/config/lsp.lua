@@ -60,3 +60,13 @@ lspconfig.sumneko_lua.setup({
 		},
 	},
 })
+
+lspconfig.pyright.setup({
+	python = {
+		analysis = {
+			autoSearchPaths = true,
+			diagnosticMode = "workspace",
+			useLibraryCodeForTypes = true,
+		},
+	},
+})
