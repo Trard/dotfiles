@@ -79,6 +79,7 @@ use {
     }
 }
 
+-- Startup time benchmark
 use 'dstein64/vim-startuptime'
 
 -- LSP
@@ -100,4 +101,5 @@ vim.cmd "colorscheme material"
 -- Run all config
 dofile(fn.stdpath("data") .. "/packer_compiled.lua")
 
+-- Load command aliases
 require('aliases')
