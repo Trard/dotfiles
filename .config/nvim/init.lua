@@ -30,6 +30,7 @@ use {
     'norcalli/nvim-colorizer.lua',
     config = function() require('colorizer').setup() end
 }
+
 use 'pangloss/vim-javascript'
 
 -- Indent line
@@ -48,14 +49,6 @@ use {
     }
 }
 
--- Comment helper
-use {
-    'numToStr/Comment.nvim',
-    config = function()
-        require('Comment').setup()
-    end
-}
-
 -- Finder
 use {
     'nvim-telescope/telescope.nvim',
@@ -64,7 +57,19 @@ use {
     requires = { 'nvim-lua/plenary.nvim' }
 }
 
--- Autocomplete
+-- Code helpers
+use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+}
+
+use {
+    'mhartington/formatter.nvim',
+    config = function() require('formatter_conf') end
+}
+
 use {
     'hrsh7th/nvim-cmp',
     config = function() require('cmp_conf') end,
