@@ -14,7 +14,6 @@ require("nvim-treesitter.configs").setup({
 
 		colors = {
             "#89DDFF",
-            "#9b3d23", -- Custom dark orange (maybe brown)
 		},
 	},
 })
