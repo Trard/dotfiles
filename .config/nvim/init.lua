@@ -57,6 +57,14 @@ use {
     requires = { 'nvim-lua/plenary.nvim' }
 }
 
+-- Testing
+use {
+  "klen/nvim-test",
+  config = function()
+    require('nvim-test').setup()
+  end
+}
+
 -- Code helpers
 use {
     'numToStr/Comment.nvim',
