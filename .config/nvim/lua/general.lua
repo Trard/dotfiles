@@ -25,7 +25,7 @@ vim.cmd
     augroup END
 ]]
 
-vim.opt.clipboard = 'unnamedplus'
+-- vim.opt.clipboard = 'unnamedplus'
 
 -- Some WSL patches
 if vim.fn.has("wsl") then
