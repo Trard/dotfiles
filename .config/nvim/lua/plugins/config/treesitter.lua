@@ -14,7 +14,7 @@ require("nvim-treesitter.configs").setup({
 
 		colors = {
             "#89DDFF",
-            "#C792EA",
+            "#87503c", -- Custom not material
 		},
 	},
 })
