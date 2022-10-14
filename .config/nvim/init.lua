@@ -20,7 +20,7 @@ use 'wbthomason/packer.nvim'
 -- Highligth
 use {
     'nvim-treesitter/nvim-treesitter',
-    config = function() require('config.treesitter') end,
+    config = function() require('plugins.config.treesitter') end,
     requires = {
 	    "p00f/nvim-ts-rainbow",
 	}
@@ -36,15 +36,15 @@ use 'pangloss/vim-javascript'
 -- Indent line
 use {
     'lukas-reineke/indent-blankline.nvim',
-    setup = function() require('config.indent_line_setup') end
+    setup = function() require('plugins.setup.indent_line_setup') end
 }
 
 -- Git Diff
 use {
     'sindrets/diffview.nvim',
-    config = function() require('config.diffview') end,
+    config = function() require('plugins.config.diffview') end,
     requires = {
-        'n-lua/plenary.nvim',
+        'nvim-lua/plenary.nvim',
         'kyazdani42/nvim-web-devicons'
     }
 }
@@ -53,7 +53,7 @@ use {
 use {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.0',
-    config = function() require('config.telescope') end,
+    config = function() require('plugins.config.telescope') end,
     requires = { 'nvim-lua/plenary.nvim' }
 }
 
@@ -70,12 +70,12 @@ use {
 
 use {
     'mhartington/formatter.nvim',
-    config = function() require('config.formatter') end
+    config = function() require('plugins.config.formatter') end
 }
 
 use {
     'hrsh7th/nvim-cmp',
-    config = function() require('config.cmp') end,
+    config = function() require('plugins.config.cmp') end,
     requires = {
         'hrsh7th/vim-vsnip',
         'hrsh7th/cmp-nvim-lsp',
@@ -93,7 +93,7 @@ use 'dstein64/vim-startuptime'
 -- LSP
 require('vim_diagnostics')
 
-use { 'neovim/nvim-lspconfig', config = function() require('config.lsp') end }
+use { 'neovim/nvim-lspconfig', config = function() require('plugins.config.lsp') end }
 
 use {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
