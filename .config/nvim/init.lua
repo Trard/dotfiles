@@ -17,7 +17,7 @@ local use = packer.use
 -- Packer itself
 use 'wbthomason/packer.nvim'
 
--- Syntax highligth
+-- Highligth
 use {
     'nvim-treesitter/nvim-treesitter',
     config = function() require('treesitter_conf') end,
@@ -30,7 +30,6 @@ use {
     'norcalli/nvim-colorizer.lua',
     config = function() require('colorizer').setup() end
 }
--- use 'rust-lang/rust.vim'
 use 'pangloss/vim-javascript'
 
 -- Indent line
@@ -47,6 +46,14 @@ use {
         'nvim-lua/plenary.nvim',
         'kyazdani42/nvim-web-devicons'
     }
+}
+
+-- Comment helper
+use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
 }
 
 -- Finder
@@ -71,6 +78,8 @@ use {
         'kdheepak/cmp-latex-symbols',
     }
 }
+
+use 'dstein64/vim-startuptime'
 
 -- LSP
 use { 'neovim/nvim-lspconfig', config = function() require('lsp_conf') end }
