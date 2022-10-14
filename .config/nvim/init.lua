@@ -20,7 +20,7 @@ use 'wbthomason/packer.nvim'
 -- Highligth
 use {
     'nvim-treesitter/nvim-treesitter',
-    config = function() require('treesitter_conf') end,
+    config = function() require('config.treesitter') end,
     requires = {
 	    "p00f/nvim-ts-rainbow",
 	}
@@ -40,11 +40,11 @@ use {
 }
 
 -- Git Diff
-use { 
+use {
     'sindrets/diffview.nvim',
-    config = function() require('diffview_conf') end,
+    config = function() require('config.diffview') end,
     requires = {
-        'nvim-lua/plenary.nvim',
+        'n-lua/plenary.nvim',
         'kyazdani42/nvim-web-devicons'
     }
 }
@@ -53,7 +53,7 @@ use {
 use {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.0',
-    config = function() require('telescope_conf') end,
+    config = function() require('config.telescope') end,
     requires = { 'nvim-lua/plenary.nvim' }
 }
 
@@ -70,12 +70,12 @@ use {
 
 use {
     'mhartington/formatter.nvim',
-    config = function() require('formatter_conf') end
+    config = function() require('config.formatter') end
 }
 
 use {
     'hrsh7th/nvim-cmp',
-    config = function() require('cmp_conf') end,
+    config = function() require('config.cmp') end,
     requires = {
         'hrsh7th/vim-vsnip',
         'hrsh7th/cmp-nvim-lsp',
@@ -91,7 +91,7 @@ use {
 use 'dstein64/vim-startuptime'
 
 -- LSP
-use { 'neovim/nvim-lspconfig', config = function() require('lsp_conf') end }
+use { 'neovim/nvim-lspconfig', config = function() require('config.lsp') end }
 
 use {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
