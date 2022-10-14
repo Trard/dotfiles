@@ -10,10 +10,9 @@ o.smartindent = true
 o.smarttab = true
 o.tabstop = 4
 o.shiftwidth = 4
-o.softtabstop = 4       
+o.softtabstop = 4
 
 o.shell = "zsh"
-
 
 -- Cursor fix after exit
 vim.cmd
@@ -23,8 +22,6 @@ vim.cmd
         au ExitPre * :set guicursor=a:ver90
     augroup END
 ]]
-
--- vim.opt.clipboard = 'unnamedplus'
 
 -- Some WSL patches
 if vim.fn.has("wsl") then

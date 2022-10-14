@@ -91,6 +91,8 @@ use {
 use 'dstein64/vim-startuptime'
 
 -- LSP
+require('vim_diagnostics')
+
 use { 'neovim/nvim-lspconfig', config = function() require('config.lsp') end }
 
 use {
