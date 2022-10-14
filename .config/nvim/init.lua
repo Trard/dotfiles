@@ -58,12 +58,7 @@ use {
 }
 
 -- Testing
-use {
-  "klen/nvim-test",
-  config = function()
-    require('nvim-test').setup()
-  end
-}
+use 'vim-test/vim-test'
 
 -- Code helpers
 use {
