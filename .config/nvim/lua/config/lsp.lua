@@ -70,3 +70,5 @@ lspconfig.pyright.setup({
 		},
 	},
 })
+
+lspconfig.tsserver.setup({})
