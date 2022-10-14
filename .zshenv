@@ -10,6 +10,9 @@ alias l='ls -li'
 alias lst='ls --tree $(xargs printf " --ignore-glob=%s" < ~/.config/lsd/ignore)'
 
 alias v='nvim'
+alias vim='nvim'
+
+alias vi='vim'
 
 export ZSH="$HOME/.oh-my-zsh"
 
