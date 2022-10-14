@@ -106,5 +106,12 @@ vim.cmd "colorscheme material"
 -- Run all config
 dofile(fn.stdpath("data") .. "/packer_compiled.lua")
 
--- Load command aliases
+-- Automatically set up your configuration after cloning packer.nvim
+-- Put this at the end after all plugins
+if packer_bootstrap then
+    require('packer').sync()
+end
+
+-- Load command aliases and mappings
 require('aliases')
+require('mappings')
