@@ -19,7 +19,7 @@ use 'wbthomason/packer.nvim'
 
 -- Highligth
 use {
-    '/home/trard/downloads/nvim-treesitter',
+    '/home/trard/dev/nvim-treesitter',
     config = function() require('plugins.config.treesitter') end,
     requires = {
 	    "p00f/nvim-ts-rainbow",
@@ -104,8 +104,7 @@ use {
 }
 
 -- Deep Ocean Theme
-use '/home/trard/dev/lua/material.nvim'
--- use 'marko-cerovac/material.nvim'
+use '/home/trard/dev/lua/material.nvim' -- Trard/material.nvim
 vim.g.material_style = "deep ocean"
 vim.cmd "colorscheme material"
 
