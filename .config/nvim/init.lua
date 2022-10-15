@@ -105,8 +105,8 @@ use {
 
 -- Deep Ocean Theme
 use '/home/trard/dev/lua/tressty.nvim' -- trard/treesty.nvim
-vim.g.material_style = "deep ocean"
-vim.cmd "colorscheme material"
+vim.g.tressty_style = "deep ocean"
+vim.cmd "colorscheme tressty"
 
 -- Run all config
 dofile(fn.stdpath("data") .. "/packer_compiled.lua")
