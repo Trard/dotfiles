@@ -1,9 +1,6 @@
 local lspconfig = require("lspconfig")
 
-local function capabilities()
-	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	return require("cmp_nvim_lsp").update_capabilities(capabilities)
-end
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 lspconfig.rust_analyzer.setup({
 	settings = {
@@ -25,7 +22,7 @@ lspconfig.rust_analyzer.setup({
 			},
 		},
 	},
-	capabilities = capabilities(),
+	capabilities = capabilities,
 })
 
 lspconfig.sumneko_lua.setup({
@@ -49,6 +46,7 @@ lspconfig.sumneko_lua.setup({
 			},
 		},
 	},
+    capabilities = capabilities,
 })
 
 lspconfig.pyright.setup({
@@ -59,6 +57,9 @@ lspconfig.pyright.setup({
 			useLibraryCodeForTypes = true,
 		},
 	},
+    capabilities = capabilities,
 })
 
-lspconfig.tsserver.setup({})
+lspconfig.tsserver.setup({
+    capabilities = capabilities,
+})
