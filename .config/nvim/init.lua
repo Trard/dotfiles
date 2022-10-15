@@ -104,7 +104,7 @@ use {
 }
 
 -- Deep Ocean Theme
-use '/home/trard/dev/lua/material.nvim' -- Trard/material.nvim
+use '/home/trard/dev/lua/tressty.nvim' -- trard/treesty.nvim
 vim.g.material_style = "deep ocean"
 vim.cmd "colorscheme material"
 
