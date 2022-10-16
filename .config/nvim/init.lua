@@ -22,7 +22,7 @@ use {
     'nvim-treesitter/nvim-treesitter',
     config = function() require('plugins.config.treesitter') end,
     requires = {
-	"p00f/nvim-ts-rainbow",
+        "p00f/nvim-ts-rainbow",
         'nvim-treesitter/playground'
     }
 }
