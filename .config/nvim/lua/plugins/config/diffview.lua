@@ -1,3 +1,6 @@
+local actions = require("diffview.actions")
+
 require("diffview").setup({
-    use_icons = true,
+    diff_binaries = false,    -- Show diffs for binaries
+    enhanced_diff_hl = true,
 })
