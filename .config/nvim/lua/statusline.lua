@@ -16,6 +16,7 @@ Statusline.active = function()
     "%=", -- Right
     "%#Normal# ",
     position(),
+    "        ",
     encoding(),
   }
 end
