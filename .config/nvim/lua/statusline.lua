@@ -3,6 +3,7 @@
 local filename = require("statusline.filename");
 local git = require("statusline.git");
 local encoding = require("statusline.encoding");
+local position = require("statusline.position");
 
 Statusline = {}
 
@@ -14,7 +15,8 @@ Statusline.active = function()
     git(),
     "%=", -- Right
     "%#Normal# ",
-    encoding()
+    position(),
+    encoding(),
   }
 end
 
