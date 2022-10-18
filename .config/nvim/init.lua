@@ -109,6 +109,9 @@ use({
 -- Startup time benchmark
 use("dstein64/vim-startuptime")
 
+-- Custom statusline
+require("statusline")
+
 -- LSP
 require("vim_diagnostics")
 
