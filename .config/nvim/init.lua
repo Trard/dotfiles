@@ -36,8 +36,6 @@ use({
 	end,
 })
 
-use("pangloss/vim-javascript")
-
 -- Indent line
 use({
 	"lukas-reineke/indent-blankline.nvim",
