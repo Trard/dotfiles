@@ -19,7 +19,7 @@ use("wbthomason/packer.nvim")
 
 -- Highligth
 use({
-	"/home/trard/dev/nvim-treesitter",
+	"nvim-treesitter/nvim-treesitter",
 	config = function()
 		require("plugins.config.treesitter")
 	end,
@@ -110,6 +110,14 @@ use("dstein64/vim-startuptime")
 -- Custom statusline
 require("statusline")
 
+-- Render markdown
+use({
+	"iamcco/markdown-preview.nvim",
+	run = function()
+		vim.fn["mkdp#util#install"]()
+	end,
+})
+
 -- LSP
 require("vim_diagnostics")
 
@@ -129,9 +137,7 @@ use({
 
 -- Deep Ocean Theme
 use("/home/trard/dev/lua/tressty.nvim") -- trard/treesty.nvim
-vim.g.tressty_style = "deep ocean"
-vim.cmd("colorscheme tressty")
-
+vim.cmd[[colorscheme tressty]]
 -- Run all config
 dofile(fn.stdpath("data") .. "/packer_compiled.lua")
 
