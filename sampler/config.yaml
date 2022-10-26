@@ -1,0 +1,39 @@
+variables:
+  max_memory: cat /proc/meminfo | grep 'MemTotal' | awk '{print $2/1024}'
+gauges:
+  - title: Common memory usage
+    position: [[40, 12], [40, 2]]
+    rate-ms: 100
+    scale: 0
+    cur:
+        sample: free | grep Mem | awk '{print $3/1024}'
+    max:
+        sample: $max_memory
+    min:
+        sample: echo 0
+  - title: Total memory usage
+    position: [[40, 8], [40, 3]]
+    rate-ms: 100
+    scale: 0
+    cur:
+        sample: free | grep Mem | awk '{print ($2-$4)/1024}'
+    max:
+        sample: $max_memory
+    min:
+        sample: echo 0
+  - title: Buffer and cache memory usage
+    position: [[40, 16], [40, 1]]
+    rate-ms: 100
+    scale: 0
+    cur:
+        sample: free | grep Mem | awk '{print ($6)/1024}'
+    max:
+        sample: $max_memory
+    min:
+        sample: echo 0
+sparklines:
+  - title: CPU usage
+    position: [[0, 0], [80, 8]]
+    rate-ms: 200
+    scale: 0
+    sample: ps -A -o %cpu | awk '{s+=$1} END {print s}'
