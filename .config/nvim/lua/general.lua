@@ -12,7 +12,7 @@ o.tabstop = 4
 o.shiftwidth = 4
 o.softtabstop = 4
 
-o.shell = "zsh"
+o.shell = "fish"
 
 -- Cursor fix after exit
 vim.cmd
