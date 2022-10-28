@@ -36,6 +36,8 @@ use {
 	end,
 }
 
+use("vim-scripts/LargeFile")
+
 -- Indent line
 use {
 	"lukas-reineke/indent-blankline.nvim",
@@ -148,6 +150,7 @@ use("/home/trard/dev/lua/tressty.nvim") -- trard/treesty.nvim
 vim.cmd([[colorscheme tressty]])
 -- Run all config
 dofile(fn.stdpath("data") .. "/packer_compiled.lua")
+
 
 -- Automatically set up your configuration after cloning packer.nvim
 -- Put this at the end after all plugins
