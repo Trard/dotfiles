@@ -12,7 +12,6 @@ if status is-interactive
     alias l='ls -li'
     alias lst='ls --tree $(xargs printf " --ignore-glob=%s" < ~/.config/lsd/ignore)'
 
-    alias v='nvim'
     alias vi='/usr/bin/vim'
     alias vim='nvim'
 
