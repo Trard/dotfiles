@@ -1,8 +1,8 @@
 set -g fish_greeting
 
-fish_add_path $HOME/.cargo/env
-fish_add_path $DENO_INSTALL/bin
-fish_add_path $HOME/.local/bin
+set -gx PATH "$HOME/.cargo/bin" $PATH;
+set -gx PATH "$DENO_INSTALL/bin" $PATH;
+set -gx PATH "$HOME/.local/bin" $PATH;
 
 if status is-interactive
     # aliases

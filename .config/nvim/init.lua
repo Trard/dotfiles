@@ -110,6 +110,14 @@ use("dstein64/vim-startuptime")
 -- Custom statusline
 require("statusline")
 
+-- Fish abbr bridge
+use({
+	"trard/fish_abbr.nvim",
+	config = function()
+        require("fish_abbr").setup()
+    end,
+})
+
 -- Render markdown
 use({
 	"iamcco/markdown-preview.nvim",
@@ -137,7 +145,7 @@ use({
 
 -- Deep Ocean Theme
 use("/home/trard/dev/lua/tressty.nvim") -- trard/treesty.nvim
-vim.cmd[[colorscheme tressty]]
+vim.cmd([[colorscheme tressty]])
 -- Run all config
 dofile(fn.stdpath("data") .. "/packer_compiled.lua")
 
