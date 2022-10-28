@@ -18,7 +18,7 @@ local use = packer.use
 use("wbthomason/packer.nvim")
 
 -- Highligth
-use({
+use {
 	"nvim-treesitter/nvim-treesitter",
 	config = function()
 		require("plugins.config.treesitter")
@@ -27,68 +27,68 @@ use({
 		"p00f/nvim-ts-rainbow",
 		"nvim-treesitter/playground",
 	},
-})
+}
 
-use({
+use {
 	"norcalli/nvim-colorizer.lua",
 	config = function()
 		require("colorizer").setup()
 	end,
-})
+}
 
 -- Indent line
-use({
+use {
 	"lukas-reineke/indent-blankline.nvim",
 	setup = function()
 		require("plugins.setup.indent_line_setup")
 	end,
-})
+}
 
 -- Git
-use({
+use {
 	"sindrets/diffview.nvim",
 	config = function()
 		require("plugins.config.diffview")
 	end,
 	requires = "nvim-lua/plenary.nvim",
-})
+}
 
-use({
+use {
 	"lewis6991/gitsigns.nvim",
 	config = function()
 		require("gitsigns").setup()
 	end,
-})
+}
 
 -- Finder
-use({
+use {
 	"nvim-telescope/telescope.nvim",
 	tag = "0.1.0",
 	config = function()
 		require("plugins.config.telescope")
 	end,
 	requires = { "nvim-lua/plenary.nvim" },
-})
+}
 
 -- Testing
 use("vim-test/vim-test")
 
 -- Code helpers
-use({
+use {
 	"numToStr/Comment.nvim",
 	config = function()
 		require("Comment").setup()
 	end,
-})
+}
 
-use({
+use {
 	"mhartington/formatter.nvim",
 	config = function()
 		require("plugins.config.formatter")
 	end,
-})
+}
 
-use({
+use {
 	"hrsh7th/nvim-cmp",
 	config = function()
 		require("plugins.config.cmp")
@@ -102,7 +102,7 @@ use({
 		"hrsh7th/cmp-nvim-lua",
 		"kdheepak/cmp-latex-symbols",
 	},
-})
+}
 
 -- Startup time benchmark
 use("dstein64/vim-startuptime")
@@ -110,38 +110,38 @@ use("dstein64/vim-startuptime")
 -- Custom statusline
 require("statusline")
 
--- Fish abbr bridge
-use({
+-- Fish abbreviations
+use {
 	"trard/fish_abbr.nvim",
 	config = function()
         require("fish_abbr").setup()
     end,
-})
+}
 
 -- Render markdown
-use({
+use {
 	"iamcco/markdown-preview.nvim",
 	run = function()
 		vim.fn["mkdp#util#install"]()
 	end,
-})
+}
 
 -- LSP
 require("vim_diagnostics")
 
-use({
+use {
 	"neovim/nvim-lspconfig",
 	config = function()
 		require("plugins.config.lsp")
 	end,
-})
+}
 
-use({
+use {
 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 	config = function()
 		require("lsp_lines").setup()
 	end,
-})
+}
 
 -- Deep Ocean Theme
 use("/home/trard/dev/lua/tressty.nvim") -- trard/treesty.nvim
