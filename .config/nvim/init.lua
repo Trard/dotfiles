@@ -113,12 +113,7 @@ use("dstein64/vim-startuptime")
 require("statusline")
 
 -- Fish abbreviations
-use {
-	"trard/fish_abbr.nvim",
-	config = function()
-        require("fish_abbr").setup()
-    end,
-}
+use("trard/fish_abbr.nvim")
 
 -- Render markdown
 use {
