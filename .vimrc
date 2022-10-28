@@ -12,3 +12,5 @@ set shiftwidth=4
 set expandtab
 set smarttab
 set softtabstop=4
+
+syntax off
