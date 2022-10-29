@@ -33,5 +33,18 @@ require("formatter").setup({
 				}
 			end,
 		},
+		toml = {
+			function()
+				return {
+					exe = "taplo",
+					args = {
+                        "fmt", "-",
+						"--config",
+						"~/.config/taplo/taplo.toml",
+					},
+                    stdin = true
+				}
+			end,
+		},
 	},
 })
