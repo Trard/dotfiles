@@ -140,12 +140,15 @@ use {
 	end,
 }
 
--- Deep Ocean Theme
-use("/home/trard/dev/tressty/nvim") -- trard/treesty.nvim
+-- Tressty Theme
+use("/home/trard/dev/tressty/nvim")
 vim.cmd([[colorscheme tressty]])
--- Run all config
-dofile(fn.stdpath("data") .. "/packer_compiled.lua")
 
+-- use("catppuccin/nvim")
+-- vim.cmd([[colorscheme catppuccin-mocha]])
+
+-- Run this config
+dofile(fn.stdpath("data") .. "/packer_compiled.lua")
 
 -- Automatically set up your configuration after cloning packer.nvim
 -- Put this at the end after all plugins
