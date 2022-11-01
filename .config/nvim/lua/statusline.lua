@@ -12,7 +12,9 @@ Statusline.active = function()
     "%#Statusline#",
     "%#Normal# ",
     filename(),
+    "%#Normal#",
     git(),
+    "%#Normal#",
     "%=", -- Right
     "%#Normal# ",
     position(),
