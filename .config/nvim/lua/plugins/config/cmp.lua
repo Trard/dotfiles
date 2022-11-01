@@ -2,12 +2,13 @@ local function feed(keys)
 	vim.fn.feedkeys(vim.api.nvim_replace_termcodes(keys, true, true, true), true)
 end
 
-local cmp = require 'cmp'
+local cmp = assert(require('cmp'))
+
 cmp.setup {
 	completion = {
 		autocomplete = false
 	},
-	
+
 	snippet = {
 		expand = function(args)
 			vim.fn['vsnip#anonymous'](args.body)
