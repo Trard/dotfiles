@@ -4,6 +4,7 @@ local filename = require("statusline.filename");
 local git = require("statusline.git");
 local encoding = require("statusline.encoding");
 local position = require("statusline.position");
+local lsp_status = require('lsp-status')
 
 Statusline = {}
 
@@ -15,6 +16,7 @@ Statusline.active = function()
     "%#Normal#",
     git(),
     "%#Normal#",
+    lsp_status.status(),
     "%=", -- Right
     "%#Normal# ",
     position(),

@@ -1,9 +1,17 @@
-local lspconfig = require("lspconfig")
+local lsp_config = require("lspconfig")
+local lsp_status = require("plugins.config.lsp_status")
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+local function extend(table, other_table)
+    return vim.tbl_extend('keep', table, other_table)
+end
+
+local capabilities = cmp_capabilities
+extend(capabilities, lsp_status.capabilities)
 
 -- https://github.com/rust-lang/rust-analyzer/blob/master/docs/user/generated_config.adoc
-lspconfig.rust_analyzer.setup({
+lsp_config.rust_analyzer.setup({
 	settings = {
 		["rust-analyzer"] = {
 			cargo = {
@@ -28,7 +36,7 @@ lspconfig.rust_analyzer.setup({
 	capabilities = capabilities,
 })
 
-lspconfig.sumneko_lua.setup({
+lsp_config.sumneko_lua.setup({
 	settings = {
 		Lua = {
 			runtime = {
@@ -52,7 +60,7 @@ lspconfig.sumneko_lua.setup({
 	capabilities = capabilities,
 })
 
-lspconfig.pyright.setup({
+lsp_config.pyright.setup({
 	python = {
 		analysis = {
 			autoSearchPaths = true,
@@ -63,6 +71,6 @@ lspconfig.pyright.setup({
 	capabilities = capabilities,
 })
 
-lspconfig.tsserver.setup({
+lsp_config.tsserver.setup({
 	capabilities = capabilities,
 })

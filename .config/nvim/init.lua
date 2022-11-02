@@ -131,11 +131,17 @@ use({
 -- LSP & DAP
 require("vim_diagnostics")
 
+use("lsp-status")
+
 use({
 	"neovim/nvim-lspconfig",
 	config = function()
 		require("plugins.config.lsp")
 	end,
+    requires = {
+        "lsp-status",
+        "cmp_nvim_lsp"
+    }
 })
 
 use({
