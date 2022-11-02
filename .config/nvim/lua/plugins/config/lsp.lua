@@ -1,12 +1,13 @@
 local lspconfig = require("lspconfig")
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+-- https://github.com/rust-lang/rust-analyzer/blob/master/docs/user/generated_config.adoc
 lspconfig.rust_analyzer.setup({
 	settings = {
 		["rust-analyzer"] = {
 			cargo = {
-				allFeatures = true,
+				features = "all",
 			},
 			completion = {
 				autoimport = {
@@ -16,9 +17,11 @@ lspconfig.rust_analyzer.setup({
 			checkOnSave = {
 				command = "clippy",
 			},
-			assist = {
-				importMergeBehaviour = "crate",
-				importPrefix = "by_crate",
+			imports = {
+				granularity = {
+					group = "crate",
+				},
+				prefix = "by_crate",
 			},
 		},
 	},
@@ -46,7 +49,7 @@ lspconfig.sumneko_lua.setup({
 			},
 		},
 	},
-    capabilities = capabilities,
+	capabilities = capabilities,
 })
 
 lspconfig.pyright.setup({
@@ -57,9 +60,9 @@ lspconfig.pyright.setup({
 			useLibraryCodeForTypes = true,
 		},
 	},
-    capabilities = capabilities,
+	capabilities = capabilities,
 })
 
 lspconfig.tsserver.setup({
-    capabilities = capabilities,
+	capabilities = capabilities,
 })
