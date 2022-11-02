@@ -17,7 +17,7 @@ local use = packer.use
 -- Packer itself
 use("wbthomason/packer.nvim")
 
--- Highligth
+-- Highlight
 use({
 	"nvim-treesitter/nvim-treesitter",
 	config = function()
@@ -111,6 +111,14 @@ use({
 
 use("machakann/vim-swap")
 
+use {
+    'saecki/crates.nvim',
+    tag = 'v0.3.0',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+        require('crates').setup()
+    end,
+}
 -- Startup time benchmark
 use("dstein64/vim-startuptime")
 
