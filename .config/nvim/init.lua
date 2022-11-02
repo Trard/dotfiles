@@ -114,9 +114,6 @@ use("machakann/vim-swap")
 -- Startup time benchmark
 use("dstein64/vim-startuptime")
 
--- Custom statusline
-require("statusline")
-
 -- Fish abbreviations
 use("trard/fish_abbr.nvim")
 
@@ -131,7 +128,7 @@ use({
 -- LSP & DAP
 require("vim_diagnostics")
 
-use("lsp-status")
+use("nvim-lua/lsp-status.nvim")
 
 use({
 	"neovim/nvim-lspconfig",
@@ -139,8 +136,8 @@ use({
 		require("plugins.config.lsp")
 	end,
     requires = {
-        "lsp-status",
-        "cmp_nvim_lsp"
+        "nvim-lua/lsp-status.nvim",
+        "hrsh7th/cmp-nvim-lsp"
     }
 })
 
@@ -160,6 +157,9 @@ vim.cmd([[colorscheme tressty]])
 -- use("catppuccin/nvim")
 -- vim.cmd([[colorscheme catppuccin-mocha]])
 
+-- Custom statusline
+require("statusline")
+
 -- Run this config
 dofile(fn.stdpath("data") .. "/packer_compiled.lua")
 
@@ -172,3 +172,4 @@ end
 -- Load command aliases and mappings
 require("aliases")
 require("mappings")
+
