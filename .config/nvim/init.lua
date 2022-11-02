@@ -109,6 +109,8 @@ use({
 	},
 })
 
+use("machakann/vim-swap")
+
 -- Startup time benchmark
 use("dstein64/vim-startuptime")
 
@@ -126,7 +128,7 @@ use({
 	end,
 })
 
--- LSP
+-- LSP & DAP
 require("vim_diagnostics")
 
 use({
@@ -143,13 +145,7 @@ use({
 	end,
 })
 
--- Don't work, but why
-use({
-	"j-hui/fidget.nvim",
-	config = function()
-		require("fidget").setup()
-    end
-})
+use("mfussenegger/nvim-dap")
 
 -- Tressty Theme
 use("/home/trard/dev/tressty/nvim")
