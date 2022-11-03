@@ -111,14 +111,13 @@ use({
 
 use("machakann/vim-swap")
 
-use {
-    'saecki/crates.nvim',
-    tag = 'v0.3.0',
-    requires = { 'nvim-lua/plenary.nvim' },
-    config = function()
-        require('crates').setup()
+use({
+	"saecki/crates.nvim",
+	requires = { "nvim-lua/plenary.nvim" },
+	config = function()
+        require("crates").setup()
     end,
-}
+})
 -- Startup time benchmark
 use("dstein64/vim-startuptime")
 
@@ -143,10 +142,10 @@ use({
 	config = function()
 		require("plugins.config.lsp")
 	end,
-    requires = {
-        "nvim-lua/lsp-status.nvim",
-        "hrsh7th/cmp-nvim-lsp"
-    }
+	requires = {
+		"nvim-lua/lsp-status.nvim",
+		"hrsh7th/cmp-nvim-lsp",
+	},
 })
 
 use({
@@ -180,4 +179,3 @@ end
 -- Load command aliases and mappings
 require("aliases")
 require("mappings")
-
