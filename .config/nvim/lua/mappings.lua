@@ -1,6 +1,8 @@
 local map = vim.keymap.set
 local execute = vim.fn.execute
 
+vim.g.mapleader = ","
+
 -- Exit insert mode with `jk`
 map("i", "jk", "<Esc>")
 -- Do the same in terminal mode

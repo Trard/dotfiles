@@ -115,8 +115,8 @@ use({
 	"saecki/crates.nvim",
 	requires = { "nvim-lua/plenary.nvim" },
 	config = function()
-        require("crates").setup()
-    end,
+		require("crates").setup()
+	end,
 })
 -- Startup time benchmark
 use("dstein64/vim-startuptime")
