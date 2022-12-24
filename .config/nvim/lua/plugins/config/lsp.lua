@@ -4,37 +4,12 @@ local lsp_status = require("plugins.config.lsp_status")
 local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local function extend(table, other_table)
-    return vim.tbl_extend('keep', table, other_table)
+	return vim.tbl_extend("keep", table, other_table)
 end
 
 local capabilities = cmp_capabilities
 extend(capabilities, lsp_status.capabilities)
 
--- https://github.com/rust-lang/rust-analyzer/blob/master/docs/user/generated_config.adoc
-lsp_config.rust_analyzer.setup({
-	settings = {
-		["rust-analyzer"] = {
-			cargo = {
-				features = "all",
-			},
-			completion = {
-				autoimport = {
-					enable = true,
-				},
-			},
-			checkOnSave = {
-				command = "clippy",
-			},
-			imports = {
-				granularity = {
-					group = "crate",
-				},
-				prefix = "by_crate",
-			},
-		},
-	},
-	capabilities = capabilities,
-})
 
 lsp_config.sumneko_lua.setup({
 	settings = {
@@ -73,4 +48,39 @@ lsp_config.pyright.setup({
 
 lsp_config.tsserver.setup({
 	capabilities = capabilities,
+})
+
+local rt = require("rust-tools")
+
+rt.setup({
+	server = {
+        -- https://github.com/rust-lang/rust-analyzer/blob/master/docs/user/generated_config.adoc
+		settings = {
+			["rust-analyzer"] = {
+				cargo = {
+					features = "all",
+				},
+				completion = {
+					autoimport = {
+						enable = true,
+					},
+				},
+				checkOnSave = {
+					command = "clippy",
+				},
+				imports = {
+					granularity = {
+						group = "crate",
+					},
+					prefix = "by_crate",
+				},
+			},
+		},
+		on_attach = function(_, bufnr)
+			-- Hover actions
+			vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+			-- Code action groups
+			vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+		end,
+	},
 })

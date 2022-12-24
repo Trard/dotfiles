@@ -109,6 +109,8 @@ use({
 	},
 })
 
+use("simrat39/rust-tools.nvim")
+
 use("machakann/vim-swap")
 
 use({
