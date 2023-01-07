@@ -46,6 +46,12 @@ lsp_config.pyright.setup({
 })
 
 lsp_config.tsserver.setup({
+    root_dir = function(fname)
+        return lsp_config.util.root_pattern('tsconfig.json')(fname)
+            or lsp_config.util.root_pattern('package.json', 'jsconfig.json', '.git')(fname)
+            -- allow use without root pattern
+            or lsp_config.util.path.dirname(fname)
+    end,
 	capabilities = capabilities,
 })
 
