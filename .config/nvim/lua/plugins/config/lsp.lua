@@ -3,12 +3,8 @@ local lsp_status = require("plugins.config.lsp_status")
 
 local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-local function extend(table, other_table)
-	return vim.tbl_extend("keep", table, other_table)
-end
-
 local capabilities = cmp_capabilities
-extend(capabilities, lsp_status.capabilities)
+extend_table(capabilities, lsp_status.capabilities)
 
 
 lsp_config.sumneko_lua.setup({
@@ -72,6 +68,12 @@ rt.setup({
 				},
 				checkOnSave = {
 					command = "clippy",
+                    extraArgs = {
+                        "--",
+                        "-W", "clippy::all",
+                        "-W", "clippy::pedantic",
+                        "-W", "clippy::nursery"
+                    }
 				},
 				imports = {
 					granularity = {

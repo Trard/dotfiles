@@ -33,3 +33,6 @@ function _G.merge_tables(...)
     return first_table
 end
 
+function _G.extend_table(table, other_table)
+	return vim.tbl_extend("keep", table, other_table)
+end
