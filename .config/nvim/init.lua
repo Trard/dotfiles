@@ -9,7 +9,7 @@ require("statusline")
 
 -- Load command aliases and mappings
 require("aliases")
-require("mappings")
+-- require("mappings")
 
 -- Disable default vim diagnostics
 require("vim_diagnostics")
@@ -62,7 +62,7 @@ require("lazy").setup({
 		end,
 	},
 
-	-- Easy commenting 
+	-- Easy commenting
 	{
 		"numToStr/Comment.nvim",
 		config = function()
@@ -70,15 +70,19 @@ require("lazy").setup({
 		end,
 	},
 
-    -- Formatting
+	-- Formatting
 	{
 		"mhartington/formatter.nvim",
 		config = function()
 			require("plugins.config.formatter")
 		end,
+		lazy = true,
+		keys = {
+			{ "F", "<cmd>Format<cr>" },
+		},
 	},
 
-    -- Autocomplete
+	-- Autocomplete
 	{
 		"hrsh7th/nvim-cmp",
 		config = function()
@@ -95,7 +99,7 @@ require("lazy").setup({
 		},
 	},
 
-    -- LSP
+	-- LSP
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
@@ -105,6 +109,10 @@ require("lazy").setup({
 			"nvim-lua/lsp-status.nvim",
 			"hrsh7th/cmp-nvim-lsp",
 		},
+		keys = {
+			{ "rn", vim.lsp.buf.rename, noremap = true },
+		},
+		lazy = false,
 	},
 	{
 		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
@@ -114,7 +122,7 @@ require("lazy").setup({
 	},
 	"nvim-lua/lsp-status.nvim",
 
-    "simrat39/rust-tools.nvim",
+	"simrat39/rust-tools.nvim",
 	{
 		"saecki/crates.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
@@ -123,10 +131,10 @@ require("lazy").setup({
 		end,
 	},
 
-    -- DAP
+	-- DAP
 	"mfussenegger/nvim-dap",
 
-    -- Easy swap args in functions
+	-- Easy swap args in functions
 	"machakann/vim-swap",
 
 	-- Startup time benchmark
@@ -136,17 +144,35 @@ require("lazy").setup({
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.0",
-		config = function()
-			require("plugins.config.telescope")
-		end,
-		dependencies = { "nvim-lua/plenary.nvim" },
+        dependencies = { "nvim-lua/plenary.nvim" },
+		keys = {
+			{ "ff", function() require("telescope.builtin").find_files() end },
+			{ "fg", function() require("telescope.builtin").live_grep() end },
+			{ "fo", function() require("telescope.builtin").live_grep({ grep_open_files = true }) end },
+			{ "fb", function() require("telescope.builtin").buffers() end },
+			{ "fh", function() require("telescope.builtin").help_tags() end },
+		},
 	},
 
 	-- Testing
-	"vim-test/vim-test",
+	{
+		"vim-test/vim-test",
+		keys = {
+			{ "tn", "<cmd>TestNearest<cr>" },
+			{ "tf", "<cmd>TestFile<cr>" },
+			{ "tl", "<cmd>TestLast<cr>" },
+		},
+		lazy = true,
+	},
 
 	-- Powerfull undo history
-	"mbbill/undotree",
+	{
+		"mbbill/undotree",
+		keys = {
+			{ "<C-u>", "<cmd>UndotreeToggle<cr>" },
+		},
+		lazy = true,
+	},
 
 	-- Render markdown
 	{

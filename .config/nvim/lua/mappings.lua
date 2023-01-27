@@ -13,22 +13,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 map("i", "jk", "<Esc>")
 map("t", "jk", "<C-\\><C-N>")
 
--- Format
-map("n", "F", vim.cmd.Format)
-
--- Rename
-map("n", "rn", vim.lsp.buf.rename, { noremap = true })
-
 -- Fast replace
 map("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
--- Run tests
-map("n", "tn", vim.cmd.TestNearest)
-map("n", "tf", vim.cmd.TestFile)
-map("n", "tl", vim.cmd.TestLast)
-
--- Undotree
-map("n", "<C-u>", vim.cmd.UndotreeToggle)
 
 -- Fix pasting
 map("x", "<leader>p", '"_dP')
