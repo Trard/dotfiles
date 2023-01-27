@@ -1,4 +1,4 @@
--- Helpers
+-- -- Helpers
 require("helpers")
 
 -- General settings
@@ -9,12 +9,11 @@ require("statusline")
 
 -- Load command aliases and mappings
 require("aliases")
--- require("mappings")
+require("mappings")
 
--- Disable default vim diagnostics
+-- -- Disable default vim diagnostics
 require("vim_diagnostics")
-
--- Plugins
+--
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -36,15 +35,17 @@ require("lazy").setup({
 		config = function()
 			require("plugins.config.treesitter")
 		end,
-		dependencies = {
-			"nvim-treesitter/playground",
-		},
+        dependencies = {
+            "nvim-treesitter/playground"
+        },
+        event = "BufReadPost",
 	},
 	{
 		"norcalli/nvim-colorizer.lua",
 		config = function()
 			require("colorizer").setup()
 		end,
+        event = "BufReadPost",
 	},
 
 	-- Git
@@ -54,12 +55,17 @@ require("lazy").setup({
 			require("plugins.config.diffview")
 		end,
 		dependencies = "nvim-lua/plenary.nvim",
+        keys = {
+            { "dvo", "<cmd>DiffviewOpen<cr>" }
+        },
+        event = "VeryLazy",
 	},
 	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require("gitsigns").setup()
 		end,
+        event = "BufReadPre"
 	},
 
 	-- Easy commenting
@@ -68,6 +74,7 @@ require("lazy").setup({
 		config = function()
 			require("Comment").setup()
 		end,
+        event = "VeryLazy",
 	},
 
 	-- Formatting
@@ -80,6 +87,7 @@ require("lazy").setup({
 		keys = {
 			{ "F", "<cmd>Format<cr>" },
 		},
+        event = "VeryLazy",
 	},
 
 	-- Autocomplete
@@ -95,8 +103,8 @@ require("lazy").setup({
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-calc",
 			"hrsh7th/cmp-nvim-lua",
-			"kdheepak/cmp-latex-symbols",
 		},
+        event = "InsertEnter",
 	},
 
 	-- LSP
@@ -109,10 +117,10 @@ require("lazy").setup({
 			"nvim-lua/lsp-status.nvim",
 			"hrsh7th/cmp-nvim-lsp",
 		},
+        event = "BufReadPre",
 		keys = {
 			{ "rn", vim.lsp.buf.rename, noremap = true },
 		},
-		lazy = false,
 	},
 	{
 		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
@@ -129,28 +137,54 @@ require("lazy").setup({
 		config = function()
 			require("crates").setup()
 		end,
+        ft = "toml"
 	},
 
 	-- DAP
 	"mfussenegger/nvim-dap",
 
 	-- Easy swap args in functions
-	"machakann/vim-swap",
-
-	-- Startup time benchmark
-	"dstein64/vim-startuptime",
+    {
+        "machakann/vim-swap",
+        event = "VeryLazy"
+    },
 
 	-- Finder
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.0",
-        dependencies = { "nvim-lua/plenary.nvim" },
+		dependencies = { "nvim-lua/plenary.nvim" },
 		keys = {
-			{ "ff", function() require("telescope.builtin").find_files() end },
-			{ "fg", function() require("telescope.builtin").live_grep() end },
-			{ "fo", function() require("telescope.builtin").live_grep({ grep_open_files = true }) end },
-			{ "fb", function() require("telescope.builtin").buffers() end },
-			{ "fh", function() require("telescope.builtin").help_tags() end },
+			{
+				"ff",
+				function()
+					require("telescope.builtin").find_files()
+				end,
+			},
+			{
+				"fg",
+				function()
+					require("telescope.builtin").live_grep()
+				end,
+			},
+			{
+				"fo",
+				function()
+					require("telescope.builtin").live_grep({ grep_open_files = true })
+				end,
+			},
+			{
+				"fb",
+				function()
+					require("telescope.builtin").buffers()
+				end,
+			},
+			{
+				"fh",
+				function()
+					require("telescope.builtin").help_tags()
+				end,
+			},
 		},
 	},
 
@@ -162,7 +196,6 @@ require("lazy").setup({
 			{ "tf", "<cmd>TestFile<cr>" },
 			{ "tl", "<cmd>TestLast<cr>" },
 		},
-		lazy = true,
 	},
 
 	-- Powerfull undo history
@@ -171,7 +204,6 @@ require("lazy").setup({
 		keys = {
 			{ "<C-u>", "<cmd>UndotreeToggle<cr>" },
 		},
-		lazy = true,
 	},
 
 	-- Render markdown
@@ -180,6 +212,7 @@ require("lazy").setup({
 		build = function()
 			vim.fn["mkdp#util#install"]()
 		end,
+		ft = "markdown",
 	},
 
 	-- Optimize large files
@@ -188,13 +221,16 @@ require("lazy").setup({
 	-- Indent line
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		init = function()
-			require("plugins.setup.indent_line_setup")
+		config = function()
+			require("plugins.config.indent_line")
 		end,
 	},
 
 	-- Fish abbreviations
-	"trard/fish_abbr.nvim",
+    {
+        "trard/fish_abbr.nvim",
+        event = "VeryLazy",
+    },
 
 	-- Tressty Theme
 	{

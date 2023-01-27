@@ -18,7 +18,6 @@ cmp.setup {
 	sources = {
 		{ name = 'nvim_lsp' },
 		{ name = 'nvim_lua' },
-		{ name = 'latex_symbols' },
 		{ name = 'path' },
 		{ name = 'buffer' },
 		{ name = 'calc' },

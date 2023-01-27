@@ -6,5 +6,5 @@ end
 Alias("W", "w")
 Alias("Wq", "wq")
 Alias("WQ", "wq")
-Alias("dvo", "DiffviewOpen")
+Alias("wQ", "wq")
 Alias("TShi", "TSHighlightCapturesUnderCursor")
