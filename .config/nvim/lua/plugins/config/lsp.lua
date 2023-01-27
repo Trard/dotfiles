@@ -26,6 +26,9 @@ lsp_config.sumneko_lua.setup({
 			},
 		},
 	},
+    on_attach = function(client)
+        client.server_capabilities.semanticTokensProvider = nil
+    end,
 	capabilities = capabilities,
 })
 
@@ -37,6 +40,9 @@ lsp_config.pyright.setup({
 			useLibraryCodeForTypes = true,
 		},
 	},
+    on_attach = function(client)
+        client.server_capabilities.semanticTokensProvider = nil
+    end,
 	capabilities = capabilities,
 })
 
@@ -47,6 +53,9 @@ lsp_config.tsserver.setup({
 			-- allow use without root pattern
 			or lsp_config.util.path.dirname(fname)
 	end,
+    on_attach = function(client)
+        client.server_capabilities.semanticTokensProvider = nil
+    end,
 	capabilities = capabilities,
 })
 
