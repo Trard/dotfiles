@@ -7,15 +7,6 @@ require("nvim-treesitter.configs").setup({
 		enable = true,
 	},
 
-	rainbow = {
-		enable = true,
-		extended_mode = true,
-
-		colors = {
-			"#89DDFF",
-		},
-	},
-
 	playground = {
 		enable = true,
 		updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code

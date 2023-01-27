@@ -37,25 +37,13 @@ require("lazy").setup({
 			require("plugins.config.treesitter")
 		end,
 		dependencies = {
-			"p00f/nvim-ts-rainbow",
 			"nvim-treesitter/playground",
 		},
 	},
-
 	{
 		"norcalli/nvim-colorizer.lua",
 		config = function()
 			require("colorizer").setup()
-		end,
-	},
-
-	"vim-scripts/LargeFile",
-
-	-- Indent line
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		init = function()
-			require("plugins.setup.indent_line_setup")
 		end,
 	},
 
@@ -67,13 +55,82 @@ require("lazy").setup({
 		end,
 		dependencies = "nvim-lua/plenary.nvim",
 	},
-
 	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require("gitsigns").setup()
 		end,
 	},
+
+	-- Easy commenting 
+	{
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	},
+
+    -- Formatting
+	{
+		"mhartington/formatter.nvim",
+		config = function()
+			require("plugins.config.formatter")
+		end,
+	},
+
+    -- Autocomplete
+	{
+		"hrsh7th/nvim-cmp",
+		config = function()
+			require("plugins.config.cmp")
+		end,
+		dependencies = {
+			"hrsh7th/vim-vsnip",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-calc",
+			"hrsh7th/cmp-nvim-lua",
+			"kdheepak/cmp-latex-symbols",
+		},
+	},
+
+    -- LSP
+	{
+		"neovim/nvim-lspconfig",
+		config = function()
+			require("plugins.config.lsp")
+		end,
+		dependencies = {
+			"nvim-lua/lsp-status.nvim",
+			"hrsh7th/cmp-nvim-lsp",
+		},
+	},
+	{
+		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		config = function()
+			require("lsp_lines").setup()
+		end,
+	},
+	"nvim-lua/lsp-status.nvim",
+
+    "simrat39/rust-tools.nvim",
+	{
+		"saecki/crates.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("crates").setup()
+		end,
+	},
+
+    -- DAP
+	"mfussenegger/nvim-dap",
+
+    -- Easy swap args in functions
+	"machakann/vim-swap",
+
+	-- Startup time benchmark
+	"dstein64/vim-startuptime",
 
 	-- Finder
 	{
@@ -91,54 +148,6 @@ require("lazy").setup({
 	-- Powerfull undo history
 	"mbbill/undotree",
 
-	-- Code helpers
-	{
-		"numToStr/Comment.nvim",
-		config = function()
-			require("Comment").setup()
-		end,
-	},
-
-	{
-		"mhartington/formatter.nvim",
-		config = function()
-			require("plugins.config.formatter")
-		end,
-	},
-
-	{
-		"hrsh7th/nvim-cmp",
-		config = function()
-			require("plugins.config.cmp")
-		end,
-		dependencies = {
-			"hrsh7th/vim-vsnip",
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-calc",
-			"hrsh7th/cmp-nvim-lua",
-			"kdheepak/cmp-latex-symbols",
-		},
-	},
-
-	"simrat39/rust-tools.nvim",
-
-	"machakann/vim-swap",
-
-	{
-		"saecki/crates.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			require("crates").setup()
-		end,
-	},
-	-- Startup time benchmark
-	"dstein64/vim-startuptime",
-
-	-- Fish abbreviations
-	"trard/fish_abbr.nvim",
-
 	-- Render markdown
 	{
 		"iamcco/markdown-preview.nvim",
@@ -147,29 +156,19 @@ require("lazy").setup({
 		end,
 	},
 
-	-- LSP & DAP
+	-- Optimize large files
+	"vim-scripts/LargeFile",
 
-	"nvim-lua/lsp-status.nvim",
-
+	-- Indent line
 	{
-		"neovim/nvim-lspconfig",
-		config = function()
-			require("plugins.config.lsp")
-		end,
-		dependencies = {
-			"nvim-lua/lsp-status.nvim",
-			"hrsh7th/cmp-nvim-lsp",
-		},
-	},
-
-	{
-		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-		config = function()
-			require("lsp_lines").setup()
+		"lukas-reineke/indent-blankline.nvim",
+		init = function()
+			require("plugins.setup.indent_line_setup")
 		end,
 	},
 
-	"mfussenegger/nvim-dap",
+	-- Fish abbreviations
+	"trard/fish_abbr.nvim",
 
 	-- Tressty Theme
 	{
@@ -181,4 +180,3 @@ require("lazy").setup({
 		end,
 	},
 })
-
