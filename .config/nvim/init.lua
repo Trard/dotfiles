@@ -4,16 +4,6 @@ require("helpers")
 -- General settings
 require("general")
 
--- Custom statusline
-require("statusline")
-
--- Load command aliases and mappings
-require("aliases")
-require("mappings")
-
--- -- Disable default vim diagnostics
-require("vim_diagnostics")
---
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -35,17 +25,17 @@ require("lazy").setup({
 		config = function()
 			require("plugins.config.treesitter")
 		end,
-        dependencies = {
-            "nvim-treesitter/playground"
-        },
-        event = "BufReadPost",
+		dependencies = {
+			"nvim-treesitter/playground",
+		},
+		event = "BufReadPost",
 	},
 	{
 		"norcalli/nvim-colorizer.lua",
 		config = function()
 			require("colorizer").setup()
 		end,
-        event = "BufReadPost",
+		event = "BufReadPost",
 	},
 
 	-- Git
@@ -55,17 +45,17 @@ require("lazy").setup({
 			require("plugins.config.diffview")
 		end,
 		dependencies = "nvim-lua/plenary.nvim",
-        keys = {
-            { "dvo", "<cmd>DiffviewOpen<cr>" }
-        },
-        event = "VeryLazy",
+		keys = {
+			{ "dvo", "<cmd>DiffviewOpen<cr>" },
+		},
+		event = "VeryLazy",
 	},
 	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require("gitsigns").setup()
 		end,
-        event = "BufReadPre"
+		event = "BufReadPre",
 	},
 
 	-- Easy commenting
@@ -74,7 +64,7 @@ require("lazy").setup({
 		config = function()
 			require("Comment").setup()
 		end,
-        event = "VeryLazy",
+		event = "VeryLazy",
 	},
 
 	-- Formatting
@@ -87,7 +77,7 @@ require("lazy").setup({
 		keys = {
 			{ "F", "<cmd>Format<cr>" },
 		},
-        event = "VeryLazy",
+		event = "VeryLazy",
 	},
 
 	-- Autocomplete
@@ -104,7 +94,7 @@ require("lazy").setup({
 			"hrsh7th/cmp-calc",
 			"hrsh7th/cmp-nvim-lua",
 		},
-        event = "InsertEnter",
+		event = "InsertEnter",
 	},
 
 	-- LSP
@@ -117,7 +107,7 @@ require("lazy").setup({
 			"nvim-lua/lsp-status.nvim",
 			"hrsh7th/cmp-nvim-lsp",
 		},
-        event = "BufReadPre",
+		event = "BufReadPre",
 		keys = {
 			{ "rn", vim.lsp.buf.rename, noremap = true },
 		},
@@ -127,27 +117,39 @@ require("lazy").setup({
 		config = function()
 			require("lsp_lines").setup()
 		end,
+		event = "BufReadPost",
 	},
 	"nvim-lua/lsp-status.nvim",
 
-	"simrat39/rust-tools.nvim",
+	{
+		"simrat39/rust-tools.nvim",
+		dependencies = { "neovim/nvim-lspconfig" },
+        config = function()
+            require("plugins.config.rust_tools")
+        end,
+		ft = "rust",
+		lazy = true,
+	},
 	{
 		"saecki/crates.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			require("crates").setup()
 		end,
-        ft = "toml"
+		event = "BufReadPre Cargo.toml",
 	},
 
 	-- DAP
-	"mfussenegger/nvim-dap",
-
+	-- {
+	--     "mfussenegger/nvim-dap",
+	--     event = "VeryLazy"
+	-- },
+	--
 	-- Easy swap args in functions
-    {
-        "machakann/vim-swap",
-        event = "VeryLazy"
-    },
+	{
+		"machakann/vim-swap",
+		event = "VeryLazy",
+	},
 
 	-- Finder
 	{
@@ -227,10 +229,10 @@ require("lazy").setup({
 	},
 
 	-- Fish abbreviations
-    {
-        "trard/fish_abbr.nvim",
-        event = "VeryLazy",
-    },
+	{
+		"trard/fish_abbr.nvim",
+		event = "VeryLazy",
+	},
 
 	-- Tressty Theme
 	{
@@ -242,3 +244,13 @@ require("lazy").setup({
 		end,
 	},
 })
+
+-- Custom statusline
+require("statusline")
+
+-- Load command aliases and mappings
+require("aliases")
+require("mappings")
+
+-- Disable default vim diagnostics
+require("vim_diagnostics")
