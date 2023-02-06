@@ -124,9 +124,9 @@ require("lazy").setup({
 	{
 		"simrat39/rust-tools.nvim",
 		dependencies = { "neovim/nvim-lspconfig" },
-        config = function()
-            require("plugins.config.rust_tools")
-        end,
+		config = function()
+			require("plugins.config.rust_tools")
+		end,
 		ft = "rust",
 		lazy = true,
 	},
@@ -139,6 +139,15 @@ require("lazy").setup({
 		event = "BufReadPre Cargo.toml",
 	},
 
+	{
+		"AckslD/nvim-FeMaco.lua",
+		config = function()
+			require("femaco").setup()
+		end,
+        keys = {
+            { "fm", function() require('femaco.edit').edit_code_block() end }
+        }
+	},
 	-- DAP
 	-- {
 	--     "mfussenegger/nvim-dap",
