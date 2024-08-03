@@ -1,0 +1,77 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "extensions.supportUntrustedWorkspaces": {
+        "equinusocio.vsc-community-material-theme": {
+            "supportesd": true
+        },
+        "equinusocio.vsc-material-theme": {
+            "supported": true
+        },
+        "equinusocio.vsc-material-theme-icons":  {
+            "supported": true
+        }
+    },
+    "security.workspace.trust.startupPrompt": "never",
+    "settingsSync.ignoredExtensions": [
+        "cmstead.jsrefactor",
+        "mhutchie.git-graph",
+        "ms-azuretools.vscode-docker",
+        "ms-toolsai.jupyter",
+        "esbenp.prettier-vscode",
+        "ms-python.python",
+        "visualstudioexptteam.vscodeintellicode"
+    ],
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "explorer.confirmDragAndDrop": false,
+    "prettier.tabWidth": 4,
+    
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "editor.largeFileOptimizations": false,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "editor.bracketPairColorization.enabled": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "rust-analyzer.cargo.allFeatures": true,
+    "[rust]": {
+        "editor.defaultFormatter": "rust-lang.rust-analyzer"
+    },
+    
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    },
+    "[toml]": {
+        "editor.defaultFormatter": "tamasfe.even-better-toml"
+    },
+    "diffEditor.ignoreTrimWhitespace": true,
+    "terminal.integrated.fontFamily": "Cascadia Code",
+    "workbench.colorTheme": "Material Theme Ocean",
+    "launch": {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "type": "lldb",
+                "request": "launch",
+                "name": "Rust Debug Launch",
+                "program": "${workspaceRoot}/target/debug/${workspaceRootFolderName}",
+                "args": [],
+                "cwd": "${workspaceRoot}/target/debug/",
+                "sourceLanguages": ["rust"]
+            }
+        ]
+    },
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.currentLine.enabled": false,
+    "gitlens.codeLens.enabled": false,
+    "Lua.telemetry.enable": false
+}
