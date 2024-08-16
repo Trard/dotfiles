@@ -30,6 +30,10 @@ rt.setup({
 						"clippy::pedantic",
 						"-W",
 						"clippy::nursery",
+                        "-A",
+                        "clippy::must_use",
+                        "-A",
+                        "clippy::must_use_candidate"
 					},
 				},
 				imports = {

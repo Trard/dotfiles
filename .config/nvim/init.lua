@@ -245,7 +245,7 @@ require("lazy").setup({
 
 	-- Tressty Theme
 	{
-		dir = "/home/trard/dev/tressty/nvim",
+		"tressty/nvim",
 		lazy = false,
 		priority = 1000,
 		config = function()
