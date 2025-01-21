@@ -12,4 +12,5 @@ if status is-interactive
     set -gx VISUAL nvim
 
     bind -k nul accept-autosuggestion #ctrl space
+    eval $(ssh-agent -c)
 end
