@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+exec docker run --rm -it \
+  -v "$PWD":/workspace \
+  -v "$HOME/.codex":/home/codex/.codex \
+  -v m2-cache:/home/codex/.m2 \
+  -v gradle-cache:/home/codex/.gradle \
+  -v pip-cache:/home/codex/.cache/pip \
+  -v npm-cache:/home/codex/.npm \
+  -w /workspace \
+  codex-debian13 "$@"
